@@ -1,8 +1,50 @@
 # Insurance Agentic Layer
 
-An enterprise insurance agentic layer that acts as an intelligent channel across core insurance functions, including underwriting, claims, distribution, sales, actuarial, policy servicing, compliance, and operations.
+An enterprise insurance agentic layer that acts as a single-window intelligent channel across core insurance functions, including underwriting, claims, distribution, sales, actuarial, policy servicing, compliance, and operations.
 
-The goal of this repository is to provide a reusable foundation for orchestrating AI agents, tools, workflows, and enterprise integrations across the insurance value chain.
+The goal of this repository is to provide a reusable foundation for orchestrating AI agents, tools, workflows, and enterprise system access across the insurance value chain.
+
+## Current Prototype
+
+This repo now includes a lightweight browser shell for accessing multiple insurance systems from one window. The experience includes:
+
+- A chat-style command panel.
+- Natural-language routing, such as `take me to the underwriting system`.
+- A system shortcut dock for direct navigation.
+- An embedded workspace that loads the configured endpoint for each system.
+- Animated layout movement when switching from one system to another.
+- `.env` endpoint configuration for each enterprise system.
+
+## Run Locally
+
+This prototype uses Node.js only and does not require package installation.
+
+```bash
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:3000
+```
+
+## System Endpoints
+
+Configure enterprise system endpoints in `.env`:
+
+```text
+UNDERWRITING_SYSTEM_ENDPOINT=/systems/underwriting
+CLAIMS_SYSTEM_ENDPOINT=/systems/claims
+DISTRIBUTION_SYSTEM_ENDPOINT=/systems/distribution
+SALES_SYSTEM_ENDPOINT=/systems/sales
+ACTUARIAL_SYSTEM_ENDPOINT=/systems/actuarial
+POLICY_SERVICING_SYSTEM_ENDPOINT=/systems/policy-servicing
+COMPLIANCE_SYSTEM_ENDPOINT=/systems/compliance
+OPERATIONS_SYSTEM_ENDPOINT=/systems/operations
+```
+
+The checked-in `.env` uses local demo endpoints so the portal works immediately. Replace those values with real enterprise system URLs when integrating with production systems. Some third-party or enterprise applications may block iframe embedding through browser security headers; those systems will need embedding enabled or a supported integration approach.
 
 ## Vision
 
@@ -78,14 +120,12 @@ Enterprise Systems
 - Help actuarial teams investigate portfolio trends and summarize drivers.
 - Coordinate renewal workflows across servicing, underwriting, and distribution.
 
-## Repository Status
-
-This repository is currently in its initial setup stage. The README defines the intended direction and project scope. Implementation modules, services, workflows, and examples can be added as the architecture is developed.
-
 ## Suggested Project Structure
 
 ```text
 .
++-- public/          # Single-window browser shell
++-- server.js        # Local server and endpoint configuration adapter
 +-- agents/          # Domain-specific agent definitions
 +-- workflows/       # Cross-functional workflow orchestration
 +-- tools/           # Tool adapters for internal and external systems

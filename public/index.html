@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Insurance Agentic Layer</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <aside class="assistant-panel" aria-label="Assistant command panel">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">IA</span>
+        <div>
+          <h1>Insurance Agentic Layer</h1>
+          <p>Enterprise system channel</p>
+        </div>
+      </div>
+
+      <section class="chat-log" id="chatLog" aria-live="polite">
+        <article class="message assistant">
+          <span>Assistant</span>
+          <p>Tell me which system you need. For example: take me to the underwriting system.</p>
+        </article>
+      </section>
+
+      <form class="command-form" id="commandForm">
+        <label for="commandInput">Command</label>
+        <div class="command-row">
+          <input id="commandInput" name="command" type="text" autocomplete="off" placeholder="Take me to claims" required>
+          <button type="submit" aria-label="Send command">Go</button>
+        </div>
+      </form>
+    </aside>
+
+    <section class="workspace-panel" aria-label="Enterprise system workspace">
+      <header class="workspace-header">
+        <div>
+          <span class="eyebrow">Active System</span>
+          <h2 id="activeSystemName">Loading</h2>
+        </div>
+        <a class="endpoint-link" id="endpointLink" href="/" target="_blank" rel="noreferrer">Open endpoint</a>
+      </header>
+
+      <nav class="system-dock" id="systemDock" aria-label="System shortcuts"></nav>
+
+      <div class="stage" id="stage">
+        <div class="motion-card" id="motionCard" aria-hidden="true"></div>
+        <iframe id="systemFrame" title="Selected enterprise system"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
